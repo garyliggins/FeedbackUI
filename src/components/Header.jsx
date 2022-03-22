@@ -3,10 +3,15 @@ import React from 'react'
 
 import Proptypes from 'prop-types' //this is the import to define the data type of your props, this is not needed but it helps keep your code bug free 
 
-function Header({text}) /*destructuring props and passing it in from the app component */
+
+function Header({text,bgColor, textColor}) /*destructuring props and passing it in from the app component */
  {
+     const headerStyles = {
+         backgroundColor: bgColor,
+         color: textColor
+     }
     return (
-        <header>
+        <header style={headerStyles} >
             <div className='container'>
             <h1>{text}</h1>
             </div>
@@ -18,7 +23,9 @@ function Header({text}) /*destructuring props and passing it in from the app com
 }
 
 Header.defaultProps = {
-    text: "Feed Back UI",
+    text: "Feedback UI",
+    bgColor: 'rgba(0,0,0,0.4)',
+    textColor: '#ff6a95'
 }
 // if you dont want to pass a prop from the App component down to the component you want to use it in you can do it this way, this way there is no prop passed from the app component it is all done here, this is a default prop, if you pass a prop into the app component it will use that one instead of this
 
